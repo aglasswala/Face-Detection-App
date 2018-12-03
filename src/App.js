@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Particles from 'react-particles-js';
 import Navigation from './Components/Navigation/Navigation';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
@@ -7,18 +6,21 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
+import { Paper, Grid, Typography } from '@material-ui/core';
 import './App.css';
 
 
-const particleOptions = {
-                particles: {
-                  value: 30,
-                  density: {
-                    enable:true,
-                    value_area: 800
-                  }
-                }
-              }
+const styles = {
+  Paper: {
+    minWidth: 400, 
+    minHeight: 400,
+    height: "50vh",
+    width: "40vw",
+    padding: 20,
+    overflowY: 'auto',
+    marginTop: 75,
+  }
+}
 
 const initialState = {
       input: '',
@@ -117,12 +119,26 @@ class App extends Component {
       <div className="App">
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/> 
         { route === 'home' 
-          ? <div>
-              <Logo /> 
-              <Rank name={this.state.user.name} entries={this.state.user.entries} />
-              <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-              <FaceRecognition box={box} imageUrl={imageUrl}/>
-            </div>
+          ? 
+            <Grid container justify="center" spacing={8}
+              style={{
+                margin: 0,
+                width: '100%'
+              }}
+            >
+              <Grid item> 
+                <Paper style={styles.Paper}>
+                  <Rank name={this.state.user.name} entries={this.state.user.entries} />
+                  <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+                </Paper>
+              </Grid>
+              <Grid item> 
+                <Paper style={styles.Paper}>
+                  <FaceRecognition box={box} imageUrl={imageUrl}/>
+                </Paper>
+              </Grid>
+            </Grid>
+
           : (
               route === 'signin' 
               ? <SignIn  loadUser={this.loadUser} onRouteChange={this.onRouteChange} />

@@ -7,12 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const styles = {
-	root: {
-		flexGrow: 1,
-	}, 
-	grow: {
-		flexGrow: 1,	
-	},
+	section: {
+		marginRight: -12,
+		marginLeft: 'auto',
+	}
 }
 
 
@@ -20,25 +18,25 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
 
 		if (isSignedIn) {
 			return (
-			  <AppBar position="static">
+			  <AppBar position="static" style={{backgroundColor: '#2196f3'}}>
 			    <Toolbar>
 			      <Typography variant="h6" color="inherit">
 			        News
 			      </Typography>
-			      <section style={{marginRight: '-12', marginLeft: 'auto'}}>
-				      <Button color="inherit" onClick={() => onRouteChange('signout')}>Sign out</Button>
+			      <section style={styles.section}>
+				      <Button color="inherit" onClick={() => onRouteChange('signin')}>Sign out</Button>
 				  </section>
 			    </Toolbar>
 			  </AppBar>
 			)
 		} else {
 			return (
-			  <AppBar position="static">
+			  <AppBar position="static" style={{backgroundColor: '#2196f3'}}>
 			    <Toolbar>
 			      <Typography variant="h6" color="inherit">
 			        News
 			      </Typography>
-			      <section style={{marginRight: '-12', marginLeft: 'auto'}}>
+			      <section style={styles.section}>
 				      <Button color="inherit" onClick={() => onRouteChange('signin')}>Sign In</Button>
 				      <Button color="inherit" onClick={() => onRouteChange('register')}>Register</Button>
 				  </section>

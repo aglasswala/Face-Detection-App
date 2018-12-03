@@ -1,6 +1,48 @@
-import React from 'react';
+import React, { Fragment, Component } from 'react';
+import { Card, CardContent, Typography, TextField, Button, Grid } from '@material-ui/core';
 
-class SignIn extends React.Component {
+const styles = {
+	card: {
+		border: "0",
+		borderRadius: "6px",
+		color: "rgba(0, 0, 0, 0.87)",
+		background: "#fff",
+		boxShadow:
+		  "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)", 
+		display: "flex",
+		flexDirection: "column",
+		minWidth: 375,
+		width: "30vw",
+	  	height: "60vh",
+		fontSize: ".875rem",
+		transition: "all 300ms linear",
+		transitionDuration: '0.3s',
+	},
+	overlay: {
+		position: 'absolute',
+		display: "flex",
+		flexDirection: "column",
+		borderRadius: "6px",
+		paddingTop: 50,
+		paddingBottom: 40,
+		width: "25vw",
+		heigth: "45vh",
+		minWidth: 345,
+		marginLeft: "-5px",
+		marginTop: "-40px",
+		border: "0",
+		backgroundColor: '#2196f3',
+		transition: "all 300ms linear"
+	},
+	text: {
+		minWidth: 340,
+		paddingTop: 11,
+		marginBottom: 50
+	}
+}
+
+
+class SignIn extends Component {
 	constructor(props) {
 		super();
 		this.state = {
@@ -35,42 +77,57 @@ class SignIn extends React.Component {
 
 	}
 	render() {
+
 		return (
-			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-				<main className="pa4 black-80">
-				  <div className="measure ">
-				    <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-				      <legend className="f1 fw6 ph0 mh0">Sign In</legend>
-				      <div className="mt3">
-				        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-				        <input 
-				        	className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-				        	type="email" 
-				        	name="email-address"  
-				        	id="email-address" 
-				        	onChange={this.onEmailChange}
-				        />
-				      </div>
-				      <div className="mv3">
-				        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-				        <input 
-				        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-				        	type="password" 
-				        	name="password"  
-				        	id="password" 
-				        	onChange={this.onPasswordChange}
-				        /> 
-				      </div>
-				    </fieldset>
-				    <div className="">
-				      <input onClick ={this.onSubmitSignIn} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
-				    </div>
-				    <div className="lh-copy mt3">
-				      <p onClick ={() => this.props.onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
-				    </div>
-				  </div>
-				</main>
-			</article>
+			<Fragment>
+				<Grid 
+					container
+					spacing={0}
+					direction="column"
+					alignItems="center"
+					justify="center"
+					style={{minHeight: '100vh'}}
+				>
+					<Grid
+						item
+						xs={12} sm={12} md={4}
+					> 
+						<Card style={styles.card}>
+						  <CardContent>
+						    <div style={styles.overlay}>
+						  	    <Typography variant="h4" color="primary" gutterBottom>
+						  	    	Log In
+						  	    </Typography>
+						  	</div>
+							<div >
+								<br />
+								<TextField
+								  label="Email"
+								  margin="normal"
+								  onChange={this.onEmailChange}
+								  style={{marginTop: '100px', minWidth: 340}}
+								/>
+								<br />
+								<TextField
+								  label="Password"
+								  type="password"
+								  margin="normal"
+								  style={styles.text}
+								  onChange={this.onPasswordChange}
+								/>
+								<br />
+								<Button raised color="primary" onClick ={this.onSubmitSignIn}>
+								  Submit
+								</Button>
+							 	<Button raised color="primary" onClick ={() => this.props.onRouteChange('register')} >
+							 		Register
+							 	</Button>
+							</div>
+						  </CardContent>
+						</Card>
+					</Grid>
+				</Grid>
+			</Fragment>
 		);
 	}
 }

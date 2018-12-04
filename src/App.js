@@ -6,15 +6,16 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
-import { Paper, Grid, Typography } from '@material-ui/core';
+import { Paper, Grid, Typography, AppBar } from '@material-ui/core';
+import { ToolBar } from '@material-ui/core/AppBar'
 import './App.css';
 
 
 const styles = {
   Paper: {
-    minWidth: 400, 
+    minWidth: 520, 
     minHeight: 400,
-    height: "50vh",
+    height: "auto",
     width: "40vw",
     padding: 20,
     overflowY: 'auto',
@@ -117,7 +118,7 @@ class App extends Component {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/> 
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} name={this.state.user.name} entries={this.state.user.entries}/> 
         { route === 'home' 
           ? 
             <Grid container justify="center" spacing={8}

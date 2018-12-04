@@ -124,12 +124,9 @@ class Register extends React.Component {
 								/>
 								<br />
 								<div style={{paddingTop: 10}}>
-									<Button color="primary" onClick ={this.onSubmitSignIn}>
+									<Button style={{color: "#2196f3"}} onClick ={this.onSubmitSignIn}>
 									 	Submit
 									</Button>
-								 	<Button color="primary" onClick ={() => this.props.onRouteChange('register')} >
-								 		Register
-								 	</Button>
 								</div>
 							</div>
 						  </CardContent>

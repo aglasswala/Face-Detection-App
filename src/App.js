@@ -124,7 +124,7 @@ class App extends Component {
             <Grid container justify="center" spacing={8}
               style={{
                 margin: 0,
-                width: '100%'
+                width: '100%',
               }}
             >
               <Grid item> 
@@ -134,9 +134,7 @@ class App extends Component {
                 </Paper>
               </Grid>
               <Grid item> 
-                <Paper style={styles.Paper}>
-                  <FaceRecognition box={box} imageUrl={imageUrl}/>
-                </Paper>
+                <FaceRecognition box={box} imageUrl={imageUrl}/>
               </Grid>
             </Grid>
 

@@ -26,8 +26,8 @@ const styles = {
 	},
 	avatar: {
 	  margin: 50,
-	  height: 60,
-	  width: 60
+	  height: 90,
+	  width: 90
 	},
 }
 
@@ -54,14 +54,21 @@ class Navigation extends React.Component {
 			    <Avatar style={styles.avatar}>{this.props.name}</Avatar>
 			  </Grid>
 		    <Divider />
-		    <List>
-	        <ListItem button >
-	          <ListItemIcon>
-	          	<MailIcon />
-	          </ListItemIcon>
-	          <ListItemText />
-	        </ListItem>
-		    </List>
+		    <Grid
+		      container
+		      direction="row"
+		      justify="center"
+		      alignItems="flex-end"
+		    >
+				    <List alignItems="flex-end">
+				        <ListItem button >
+				          <ListItemIcon>
+				          	<MailIcon />
+				          </ListItemIcon>
+				          <ListItemText onClick={() => this.props.onRouteChange('signout')} primary="Sign out" />
+				        </ListItem>
+				    </List>
+			</Grid>
 		  </div>
 		);
 
@@ -70,16 +77,22 @@ class Navigation extends React.Component {
 				<Fragment>
 				  <AppBar position="static" style={{backgroundColor: '#2196f3'}}>
 				    <Toolbar>
-				      <Typography variant="h6" color="inherit">
-				        Face Detection
-				      </Typography>
-				      <section style={styles.section}>
-					      <Button 
-					      	color="inherit" 
-					      	onClick={() => this.props.onRouteChange('signout')}
-					       >Sign out</Button>
-					       <Button color="inherit" variant="outlined" onClick={this.toggleDrawer('right', true)}> Drawer </Button>
-					  </section>
+				    	<Grid
+				    	  justify="space-between" // Add it here :)
+				    	  container 
+				    	  spacing={24}
+				    	>
+				    		<Grid item>
+						      <Typography variant="h6" color="inherit">
+						        Face Detection
+						      </Typography>
+						    </Grid>
+						    <Grid item>
+						      <section style={styles.section}>
+							    <Button color="inherit" onClick={this.toggleDrawer('right', true)}> Profile </Button>
+							  </section>
+							</Grid>
+						</Grid>
 				    </Toolbar>
 				  </AppBar>
 				  <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
@@ -97,7 +110,7 @@ class Navigation extends React.Component {
 		} else {
 			return (
 			<Fragment>
-			  <AppBar position="static" style={{backgroundColor: '#2196f3'}}>
+			  <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
 			    <Toolbar>
 			      <Typography variant="h6" color="inherit">
 			        Face Detection

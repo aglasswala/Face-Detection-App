@@ -116,10 +116,10 @@ class SignIn extends Component {
 								  onChange={this.onPasswordChange}
 								/>
 								<br />
-								<Button raised color="primary" onClick ={this.onSubmitSignIn}>
+								<Button raised style={{color: "#2196f3"}} onClick ={this.onSubmitSignIn}>
 								  Submit
 								</Button>
-							 	<Button raised color="primary" onClick ={() => this.props.onRouteChange('register')} >
+							 	<Button raised style={{color: "#2196f3"}} onClick ={() => this.props.onRouteChange('register')} >
 							 		Register
 							 	</Button>
 							</div>

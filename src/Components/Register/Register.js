@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment } from 'react';
 import { Card, CardContent, Typography, TextField, Button, Grid } from '@material-ui/core';
 
 const styles = {

@@ -3,11 +3,9 @@ import Navigation from './Components/Navigation/Navigation';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
-import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
-import { Paper, Grid, Typography, AppBar } from '@material-ui/core';
-import { ToolBar } from '@material-ui/core/AppBar'
+import { Paper, Grid } from '@material-ui/core';
 import './App.css';
 
 

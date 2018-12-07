@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Navigation from './Components/Navigation/Navigation';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
@@ -15,8 +15,6 @@ const styles = {
   Paper: {
     minWidth: 520, 
     minHeight: 400,
-    height: "auto",
-    width: "40vw",
     padding: 20,
     overflowY: 'auto',
     marginTop: 75,
@@ -120,23 +118,22 @@ class App extends Component {
       <div className="App">
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} name={this.state.user.name} entries={this.state.user.entries}/> 
         { route === 'home' 
-          ? 
-            <Grid container justify="center" spacing={8}
-              style={{
-                margin: 0,
-                width: '100%',
-              }}
-            >
-              <Grid item> 
-                <Paper style={styles.Paper}>
-                  <Rank name={this.state.user.name} entries={this.state.user.entries} />
-                  <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-                </Paper>
+          ? <Fragment>
+              <Grid container justify="center" spacing={8}
+                style={{
+                  margin: 0,
+                  width: '100%',
+                }}
+              >
+                <Grid item> 
+                  <Paper style={styles.Paper}>
+                    <Rank name={this.state.user.name} entries={this.state.user.entries} />
+                    <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+                  </Paper> 
+                  <FaceRecognition box={box} imageUrl={imageUrl}/>
+                </Grid>
               </Grid>
-              <Grid item> 
-                <FaceRecognition box={box} imageUrl={imageUrl}/>
-              </Grid>
-            </Grid>
+            </Fragment>
 
           : (
               route === 'signin' 

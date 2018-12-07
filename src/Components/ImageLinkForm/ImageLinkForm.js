@@ -11,7 +11,7 @@ const ImageLinkForm = ({onInputChange, onButtonSubmit}) => {
 			</p>
 			<div className='center'>
 				<div className=' form center'>
-					<TextField label="Link" className='center w-70' type='tex' onChange={onInputChange}/>
+					<TextField label="Paste your link" className='center w-70' type='tex' onChange={onInputChange}/>
 					<Button variant="outlined"
 						onClick={onButtonSubmit}
 					>Detect</Button>

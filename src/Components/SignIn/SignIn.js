@@ -9,14 +9,8 @@ const styles = {
 		background: "#fff",
 		boxShadow:
 		  "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)", 
-		display: "flex",
-		flexDirection: "column",
-		minWidth: 375,
-		width: "30vw",
-	  	height: "60vh",
+		width: 375,
 		fontSize: ".875rem",
-		transition: "all 300ms linear",
-		transitionDuration: '0.3s',
 	},
 	overlay: {
 		position: 'absolute',
@@ -25,14 +19,11 @@ const styles = {
 		borderRadius: "6px",
 		paddingTop: 50,
 		paddingBottom: 40,
-		width: "25vw",
-		heigth: "45vh",
-		minWidth: 345,
-		marginLeft: "-5px",
+		width: 345,
+		marginLeft: "-9px",
 		marginTop: "-40px",
 		border: "0",
 		backgroundColor: '#2196f3',
-		transition: "all 300ms linear"
 	},
 	text: {
 		minWidth: 340,
@@ -86,7 +77,7 @@ class SignIn extends Component {
 					direction="column"
 					alignItems="center"
 					justify="center"
-					style={{minHeight: '100vh'}}
+					style={{height: '85vh'}}
 				>
 					<Grid
 						item

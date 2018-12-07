@@ -13,7 +13,7 @@ const styles = {
 		flexDirection: "column",
 		minWidth: 375,
 		width: "30vw",
-	  	height: "67vh",
+	  	height: "70vh",
 		fontSize: ".875rem",
 		transition: "all 300ms linear"
 	},
@@ -86,7 +86,7 @@ class Register extends React.Component {
 					direction="column"
 					alignItems="center"
 					justify="center"
-					style={{minHeight: '100vh'}}
+					style={{height: '85vh'}}
 				>
 					<Grid
 						item
@@ -105,7 +105,7 @@ class Register extends React.Component {
 								  label="Name"
 								  margin="normal"
 								  onChange={this.onNameChange}
-								  style={{marginTop: '100px', minWidth: 340}}
+								  style={{marginTop: '120px', minWidth: 340}}
 								/>
 								<br />
 								<TextField
@@ -128,6 +128,7 @@ class Register extends React.Component {
 									 	Submit
 									</Button>
 								</div>
+								<br />
 							</div>
 						  </CardContent>
 						</Card>

@@ -78,7 +78,7 @@ class Navigation extends React.Component {
 				  <AppBar position="static" style={{backgroundColor: '#2196f3'}}>
 				    <Toolbar>
 				    	<Grid
-				    	  justify="space-between" // Add it here :)
+				    	  justify="space-between" 
 				    	  container 
 				    	  spacing={24}
 				    	>
@@ -112,13 +112,23 @@ class Navigation extends React.Component {
 			<Fragment>
 			  <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
 			    <Toolbar>
-			      <Typography variant="h6" color="inherit">
-			        Face Detection
-			      </Typography>
-			      <section style={styles.section}>
-				      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Sign In</Button>
-				      <Button color="inherit" onClick={() => this.props.onRouteChange('register')}>Register</Button>
-				  </section>
+				    <Grid
+				      justify="space-around" 
+				      container 
+				      spacing={24}
+				    >
+				    	<Grid item>
+					      <Typography variant="h6" color="inherit">
+					        Face Detection
+					      </Typography>
+					    </Grid>
+					    <Grid item>
+					      <section style={styles.section}>
+						      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Sign In</Button>
+						      <Button color="inherit" onClick={() => this.props.onRouteChange('register')}>Register</Button>
+						  </section>
+						</Grid>
+					</Grid>
 			    </Toolbar>
 			  </AppBar>
 			  <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>

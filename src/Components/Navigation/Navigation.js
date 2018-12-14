@@ -53,7 +53,7 @@ class Navigation extends React.Component {
 		      justify="center"
 		      alignItems="flex-end"
 		    >
-			    <List alignItems="flex-end">
+			    <List alignitems="flex-end">
 			        <Button onClick={() => this.props.onRouteChange('signout')}> Sign out </Button>
 			    </List>
 			</Grid>

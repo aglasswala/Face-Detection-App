@@ -14,7 +14,6 @@ const styles = {
 	},
 	overlay: {
 		position: 'absolute',
-		display: "flex",
 		flexDirection: "column",
 		borderRadius: "6px",
 		paddingTop: 50,

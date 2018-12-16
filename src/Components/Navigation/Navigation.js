@@ -112,7 +112,7 @@ class Navigation extends React.Component {
 					    </Grid>
 					    <Grid item>
 					      <section style={styles.section}>
-						      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Sign In</Button>
+						      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Log In</Button>
 						      <Button color="inherit" onClick={() => this.props.onRouteChange('register')}>Register</Button>
 						  </section>
 						</Grid>

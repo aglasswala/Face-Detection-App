@@ -88,7 +88,8 @@ const styles = {
 		marginBottom: "1000px"
 	},
 	tachAbs: {
-		position: "absolute"
+		position: "absolute",
+		marginBottom: "100px",
 	}
 }
 
@@ -121,12 +122,10 @@ const Rank = ({entries, classes, onButtonSubmit, onInputChange, box, imageUrl })
 							</div>
 						</div>
 					</div>
-						<Paper >
-							<div className={classes.tachAbs}>
-								<img id='inputImage' alt='' src={imageUrl} width='500px' height='auto' />
-								<div className={classes.bounding_box} style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, left: box.leftCol}}></div>
-							</div>
-						</Paper>
+						<div className={classes.tachAbs}>
+							<img id='inputImage' alt='' src={imageUrl} width='500px' height='auto' />
+							<div className={classes.bounding_box} style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, left: box.leftCol}}></div>
+						</div>
 				</div>
 			</div>
 		</div>

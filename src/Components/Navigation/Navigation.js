@@ -41,6 +41,9 @@ class Navigation extends React.Component {
 
 
 	render() {
+
+		const { name, entries } = this.props
+
 		const sideList = (
 		  <div style={styles.list}>
 			  <Grid container justify="center" alignItems="center">

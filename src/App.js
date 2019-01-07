@@ -11,8 +11,8 @@ import './App.css';
 
 const styles = {
   Paper: {
-    minWidth: 520, 
-    minHeight: 400,
+    width: "700px", 
+    height: "400px",
     padding: 20,
     overflowY: 'auto',
     marginTop: 75,
@@ -103,7 +103,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-          this.setState(initialState)
+      this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }
@@ -114,7 +114,13 @@ class App extends Component {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} name={this.state.user.name} entries={this.state.user.entries}/> 
+        <Navigation 
+          isSignedIn={isSignedIn} 
+          onRouteChange={this.onRouteChange} 
+          name={this.state.user.name} 
+          entries={this.state.user.entries}
+        />
+         
         { route === 'home' 
           ? <Fragment>
               <Grid container justify="center" spacing={8}
@@ -124,11 +130,15 @@ class App extends Component {
                 }}
               >
                 <Grid item> 
-                  <Paper style={styles.Paper}>
-                    <Rank name={this.state.user.name} entries={this.state.user.entries} />
-                    <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-                  </Paper> 
-                  <FaceRecognition box={box} imageUrl={imageUrl}/>
+                    <Rank
+                      entries={this.state.user.entries} 
+                      onInputChange={this.onInputChange}
+                      onButtonSubmit={this.onButtonSubmit}  
+                      box={box}
+                      imageUrl={imageUrl}
+                    />
+                    {/* <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} /> */}
+                  {/* <FaceRecognition box={box} imageUrl={imageUrl}/> */}
                 </Grid>
               </Grid>
             </Fragment>

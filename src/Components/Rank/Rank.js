@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextField, Typography } from '@material-ui/core'
+import { Button, TextField, Typography, Paper } from '@material-ui/core'
 import { withStyles } from '@material-ui/core'
 import './Rank.css'
 
@@ -75,6 +75,21 @@ const styles = {
 		marginTop: "20px",
 		height: "50px",
 	},
+	bounding_box: {
+		position: "absolute",
+		boxShadow: "inset 0 0 0 3px #149df2",
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "center",
+	}, 
+	tachCenter: {
+		marginRight: "auto",
+		marginLeft: "auto",
+		marginBottom: "1000px"
+	},
+	tachAbs: {
+		position: "absolute"
+	}
 }
 
 
@@ -106,10 +121,14 @@ const Rank = ({entries, classes, onButtonSubmit, onInputChange, box, imageUrl })
 							</div>
 						</div>
 					</div>
+						<Paper >
+							<div className={classes.tachAbs}>
+								<img id='inputImage' alt='' src={imageUrl} width='500px' height='auto' />
+								<div className={classes.bounding_box} style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, left: box.leftCol}}></div>
+							</div>
+						</Paper>
 				</div>
 			</div>
-			<img id='inputImage' alt='' src={imageUrl} width='500px' height='auto' style={styles.image} />
-			<div className='bounding_box' style={{top: box.topRow, right: box.rightCol, bottom: box.bottomRow, left: box.leftCol}}></div>
 		</div>
 	</div>
 	);

@@ -1,43 +1,71 @@
 import React, { Fragment } from 'react';
-import { Card, CardContent, Typography, TextField, Button, Grid } from '@material-ui/core';
+import { Typography, TextField, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
-	card: {
-		border: "0",
-		borderRadius: "6px",
-		color: "rgba(0, 0, 0, 0.87)",
-		background: "#fff",
-		boxShadow:
-		  "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)", 
+	placeHolderTop: {
+		flexGrow: 1
+	},
+	placeHolderBottom: {
+		flexGrow: 1
+	},
+	signinBox: {
+		width: "400px",
+		background: "white",
+		padding: "40px 0 33px 0",
+		borderRadius: "5px",
+		border: "1px solid #eeeeee",
+		margin: "20vh auto"
+	},
+	signinContainer: {
+		maxWidth: "340px",
+		margin: "0 auto",
+	},
+	container: {
 		display: "flex",
 		flexDirection: "column",
-		minWidth: 375,
-		width: "30vw",
-	  	height: "70vh",
-		fontSize: ".875rem",
-		transition: "all 300ms linear"
+		alignItems: "stretch"
+	},
+	form: {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "stretch"
+	},
+	wrapper: {
+		display: "inline-block",
+		position: "relative",
+	},
+	textField: {
+		width: "100%",
+		boxSizing: "border-box",
+		fontWeight: "300",
+		textOverflow: "ellipsis",
+		transition: ".4s all"
+	},
+	button: {
+		position: "relative",
+		width: "100%",
+		borderRadius: "3px",
+		boxSizing: "border-box",
+		marginTop: "20px",
+	},
+	actions: {
+        display: "flex",
+        alignItems: "center",
+        marginTop: "20px",
+        justifyContent: "space-between"
 	},
 	overlay: {
-		position: 'absolute',
-		display: "flex",
-		flexDirection: "column",
-		borderRadius: "6px",
-		paddingTop: 50,
-		paddingBottom: 50,
-		width: "25vw",
-		heigth: "55vh",
-		minWidth: 345,
-		marginLeft: "-5px",
-		marginTop: "-40px",
-		border: "0",
-		backgroundColor: '#2196f3',
-		transition: "all 300ms linear"
-	},
-	text: {
-		minWidth: 340,
-		paddingTop: 11,
+		width: "300px",
+		background: "#2196f3",
+		height: "50px",
+		padding: "40px",
+		marginTop: "-75px",
+		marginLeft: "-20px",
+		borderRadius: "6px"
 	}
 }
+
 class Register extends React.Component {
 	constructor(props) {
 		super(props);
@@ -78,9 +106,74 @@ class Register extends React.Component {
 		})
 	}
 	render() {
+		
+		const { classes } = this.props
+
 		return (
 			<Fragment>
-				<Grid 
+				 <div className={classes.placeHolderTop}>
+					<div className={classes.placeHolderBottom}>
+						<div className={classes.signinBox}>
+							<div className={classes.signinContainer}>
+								<div className={classes.container}>
+									<div className={classes.overlay} style={{background: "primary"}}>
+										<Typography variant="display1">
+											Log In
+										</Typography>
+									</div>
+									<form className={classes.form}>
+										<span className={classes.wrapper}>
+											<TextField 
+													label="Name"
+													className={classes.textField}
+													onChange={this.onNameChange}
+													style={{marginTop: "30px"}}
+													margin="normal"
+												/> 
+										</span>
+										<span className={classes.wrapper}>
+											<TextField 
+													label="Email"
+													className={classes.textField}
+													onChange={this.onEmailChange}
+													margin="normal"
+												/> 
+										</span>
+										<span className={classes.wrapper}>
+											<TextField 
+												label="Password"
+												type="password"
+												className={classes.textField}
+												margin="normal"
+								 				onChange={this.onPasswordChange}
+											/> 
+                                    	</span>
+									</form>
+									<span className={classes.wrapper}>
+										<Button
+												variant="contained"
+												color="primary"
+												className={classes.button}
+												onClick={ this.onSubmitSignIn}
+											>
+												Submit
+										</Button>
+									</span>
+									<div className={classes.actions}>
+										<Button> Forgot Password?</Button>
+										<Button
+											onClick ={() => this.props.onRouteChange('register')}
+										> Sign Up 
+										</Button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				{/* <Grid 
 					container
 					spacing={0}
 					direction="column"
@@ -133,9 +226,9 @@ class Register extends React.Component {
 						  </CardContent>
 						</Card>
 					</Grid>
-				</Grid>
+				</Grid> */}
 			</Fragment>
 		);
 	}
 }
-export default Register;
+export default withStyles(styles)(Register);

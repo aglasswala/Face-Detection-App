@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextField, Typography, Paper } from '@material-ui/core'
+import { Button, TextField, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core'
 import './Rank.css'
 
@@ -108,7 +108,7 @@ const Rank = ({entries, classes, onButtonSubmit, onInputChange, box, imageUrl })
 						<div className={classes.content}>
 							You're total entry count: <Typography variant="display1">{entries}</Typography>
 							<div className={classes.wrapper}>
-								<TextField label="Paste your link" className={classes.textField} type='tex' onChange={onInputChange}/>
+								<TextField className={classes.textField} type='tex' onChange={onInputChange} style={{marginTop: "50px"}} />
 							</div>
 							<div className={classes.wrapper}>
 								<Button 

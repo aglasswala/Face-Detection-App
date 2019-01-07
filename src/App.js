@@ -2,22 +2,9 @@ import React, { Component, Fragment } from 'react';
 import Navigation from './Components/Navigation/Navigation';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
-import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
-import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
-import { Paper, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import './App.css';
-
-
-const styles = {
-  Paper: {
-    width: "700px", 
-    height: "400px",
-    padding: 20,
-    overflowY: 'auto',
-    marginTop: 75,
-  }
-}
 
 const initialState = {
       input: '',
@@ -138,8 +125,6 @@ class App extends Component {
                       box={box}
                       imageUrl={imageUrl}
                     />
-                    {/* <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} /> */}
-                  {/* <FaceRecognition box={box} imageUrl={imageUrl}/> */}
                 </Grid>
               </Grid>
             </Fragment>

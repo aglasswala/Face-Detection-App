@@ -162,8 +162,8 @@ class Register extends React.Component {
 									<div className={classes.actions}>
 										<Button> Forgot Password?</Button>
 										<Button
-											onClick ={() => this.props.onRouteChange('register')}
-										> Sign Up 
+											onClick ={() => this.props.onRouteChange('signin')}
+										> Sign In 
 										</Button>
 									</div>
 								</div>

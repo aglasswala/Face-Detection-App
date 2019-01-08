@@ -107,6 +107,7 @@ class App extends Component {
           onRouteChange={this.onRouteChange} 
           name={this.state.user.name} 
           entries={this.state.user.entries}
+          route={this.state.route}
         />
          
         { route === 'home' 

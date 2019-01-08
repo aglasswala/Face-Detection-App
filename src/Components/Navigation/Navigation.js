@@ -1,13 +1,21 @@
-import React, {Fragment} from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar'
+import React, { Fragment } from 'react';
+import {
+	AppBar,
+	Toolbar,
+	Typography,
+	Button,
+	Drawer,
+	List,
+	ListItem,
+	Divider,
+	Grid,
+	Avatar,
+	Dialog,
+	DialogTitle,
+	DialogContent,
+	DialogContentText,
+	DialogActions
+} from '@material-ui/core'
 
 const styles = {
 	section: {
@@ -21,7 +29,7 @@ const styles = {
 	  margin: 50,
 	  height: 90,
 	  width: 90
-	},
+	}
 }
 
 
@@ -29,7 +37,8 @@ class Navigation extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			right: false
+			right: false,
+			open: false
 		}
 	}
 
@@ -39,10 +48,17 @@ class Navigation extends React.Component {
 	  });
 	};
 
+	handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
 	render() {
 
-		// const { name, entries } = this.props
+		const { route } = this.props
 
 		const sideList = (
 		  <div style={styles.list}>
@@ -56,17 +72,19 @@ class Navigation extends React.Component {
 		      justify="center"
 		      alignItems="flex-end"
 		    >
-			    <List alignitems="flex-end">
-			        <Button onClick={() => this.props.onRouteChange('signout')}> Sign out </Button>
+			    <List style={{width: "100%"}} >
+						<ListItem button onClick={() => this.props.onRouteChange('signin')}>
+			         Sign out 
+						</ListItem>
 			    </List>
 			</Grid>
 		  </div>
 		);
 
-		if (this.props.isSignedIn) {
+		if (route === "home") {
 			return (
 				<Fragment>
-				  <AppBar position="static" style={{backgroundColor: '#2196f3'}}>
+				  <AppBar position="fixed" style={{backgroundColor: '#2196f3'}}>
 				    <Toolbar>
 				    	<Grid
 				    	  justify="space-between" 
@@ -79,8 +97,9 @@ class Navigation extends React.Component {
 						      </Typography>
 						    </Grid>
 						    <Grid item>
-						      <section style={styles.section}>
-							    <Button color="inherit" onClick={this.toggleDrawer('right', true)}> Profile </Button>
+						    <section style={styles.section}>
+							    <Button color="inherit" onClick={this.handleClickOpen}> Need a picture? </Button>
+									<Button color="inherit" onClick={this.toggleDrawer('right', true)}> Profile  </Button>
 							  </section>
 							</Grid>
 						</Grid>
@@ -96,12 +115,28 @@ class Navigation extends React.Component {
 				      {sideList}
 				    </div>
 				  </Drawer>
+					<Dialog
+						open={this.state.open}
+						onClose={this.handleClose}
+					>
+						<DialogTitle>{"Here's a link you can use"}</DialogTitle>
+						<DialogContent>
+							<DialogContentText id="alert-dialog-description">
+								https://scstylecaster.files.wordpress.com/2015/10/model-with-glowing-skin.jpg?w=916&h=1374
+							</DialogContentText>
+						</DialogContent>
+						<DialogActions>
+							<Button onClick={this.handleClose} color="primary" autoFocus>
+								Close
+							</Button>
+						</DialogActions>
+					</Dialog>
 				</Fragment>
 			)
-		} else {
+		} else if(route === "register"){
 			return (
 			<Fragment>
-			  <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
+			  <AppBar position="fixed" style={{ background: 'transparent', boxShadow: 'none'}}>
 			    <Toolbar>
 				    <Grid
 				      justify="space-around" 
@@ -115,7 +150,7 @@ class Navigation extends React.Component {
 					    </Grid>
 					    <Grid item>
 					      <section style={styles.section}>
-						      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Log In</Button>
+						      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Regiser page</Button>
 						      <Button color="inherit" onClick={() => this.props.onRouteChange('register')}>Register</Button>
 						  </section>
 						</Grid>
@@ -134,6 +169,40 @@ class Navigation extends React.Component {
 			  </Drawer>
 			</Fragment>
 			)
+		} else {
+		return (
+			<Fragment>
+				<AppBar position="fixed" style={{ background: 'transparent', boxShadow: 'none'}}>
+					<Toolbar>
+						<Grid
+							justify="space-around" 
+							container 
+							spacing={24}
+						>
+							<Grid item>
+								<Typography variant="h6" color="inherit">
+									Face Detection
+								</Typography>
+							</Grid>
+							<Grid item>
+								<section style={styles.section}>
+									</section>
+							</Grid>
+						</Grid>
+					</Toolbar>
+				</AppBar>
+				<Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+					<div
+						tabIndex={0}
+						role="button"
+						onClick={this.toggleDrawer('right', false)}
+						onKeyDown={this.toggleDrawer('right', false)}
+					>
+						{sideList}
+					</div>
+				</Drawer>
+			</Fragment>
+		)
 		}
 	}
 } 

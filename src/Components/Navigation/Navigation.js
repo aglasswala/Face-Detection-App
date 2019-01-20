@@ -73,7 +73,7 @@ class Navigation extends React.Component {
 		      alignItems="flex-end"
 		    >
 			    <List style={{width: "100%"}} >
-						<ListItem button onClick={() => this.props.onRouteChange('signin')}>
+						<ListItem button onClick={() => this.props.onRouteChange('signin')} style={{justifyContent: "center"}}>
 			         Sign out 
 						</ListItem>
 			    </List>

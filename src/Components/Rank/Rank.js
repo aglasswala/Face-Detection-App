@@ -102,9 +102,6 @@ const Rank = ({entries, classes, onButtonSubmit, onInputChange, box, imageUrl })
 				<div className={classes.innerCon}>	
 					<div className={classes.box}> 
 						<div className={classes.mainPaper}>
-							<h2 className={classes.h2}>
-								Let's detect a face
-							</h2>
 						<div className={classes.content}>
 							You're total entry count: <Typography variant="display1">{entries}</Typography>
 							<div className={classes.wrapper}>
@@ -115,7 +112,6 @@ const Rank = ({entries, classes, onButtonSubmit, onInputChange, box, imageUrl })
 									color="primary"
 									onClick={onButtonSubmit}
 									className={classes.button}
-									variant="outlined"
 								>
 									Detect
 								</Button>

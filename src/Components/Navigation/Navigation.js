@@ -150,11 +150,10 @@ class Navigation extends React.Component {
 					    </Grid>
 					    <Grid item>
 					      <section style={styles.section}>
-						      <Button color="inherit" onClick={() => this.props.onRouteChange('signin')} >Regiser page</Button>
-						      <Button color="inherit" onClick={() => this.props.onRouteChange('register')}>Register</Button>
-						  </section>
+									<Button color="inherit" href="https://clarifai.com/"> CLARIFAI API</Button>
+						    </section>
+							</Grid>
 						</Grid>
-					</Grid>
 			    </Toolbar>
 			  </AppBar>
 			  <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
@@ -186,7 +185,8 @@ class Navigation extends React.Component {
 							</Grid>
 							<Grid item>
 								<section style={styles.section}>
-									</section>
+									<Button color="inherit" href="https://clarifai.com/"> CLARIFAI API</Button>
+								</section>
 							</Grid>
 						</Grid>
 					</Toolbar>
